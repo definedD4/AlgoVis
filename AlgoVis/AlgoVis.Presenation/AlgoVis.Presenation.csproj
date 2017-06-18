@@ -74,6 +74,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CircleDisplay.cs" />
+    <Compile Include="DisplayHost.xaml.cs">
+      <DependentUpon>DisplayHost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -102,6 +105,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="CircleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DisplayHost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

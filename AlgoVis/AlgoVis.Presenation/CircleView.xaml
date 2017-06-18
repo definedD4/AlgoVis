@@ -2,9 +2,22 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:AlgoVis.Presenation">
     <DataTemplate DataType="{x:Type local:CircleDisplay}">
-        <Grid>
-            <Ellipse Fill="{Binding Background}"/>
-            <ContentPresenter Content="{Binding Content}"/>
+        <Grid Margin="4">
+            <Grid.RowDefinitions><RowDefinition Height="Auto"></RowDefinition></Grid.RowDefinitions>
+            <Grid.ColumnDefinitions><ColumnDefinition Width="Auto"></ColumnDefinition></Grid.ColumnDefinitions>
+            <Ellipse>
+                <Ellipse.Fill>
+                    <SolidColorBrush Color="{Binding Background}"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <ContentPresenter Content="{Binding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+                <ContentPresenter.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="18"/>
+                        <Setter Property="FontWeight" Value="Bold"/>
+                    </Style>
+                </ContentPresenter.Resources>
+            </ContentPresenter>
         </Grid>
     </DataTemplate>
 </ResourceDictionary>

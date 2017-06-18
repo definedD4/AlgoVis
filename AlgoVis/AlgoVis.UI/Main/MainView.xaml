@@ -1,12 +1,13 @@
-﻿<Window x:Class="AlgoVis.UI.MainWindow"
+﻿<Window x:Class="AlgoVis.UI.Main.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AlgoVis.UI"
+        xmlns:local="clr-namespace:AlgoVis.UI.Main"
+        xmlns:presenation="clr-namespace:AlgoVis.Presenation;assembly=AlgoVis.Presenation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainView" Height="300" Width="300">
     <Grid>
-        
+        <presenation:DisplayHost x:Name="DisplayHost"/>
     </Grid>
 </Window>
