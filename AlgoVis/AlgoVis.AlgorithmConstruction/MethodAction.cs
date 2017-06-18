@@ -8,23 +8,17 @@ namespace AlgoVis.AlgorithmConstruction
 {
     public class MethodAction : IAction
     {
-        private readonly AlgorithmBase m_Algorithm;
-        private readonly MethodInfo m_Method;
+        private readonly AlgorithmBase _algorithm;
+        private readonly MethodInfo _method;
 
         public MethodAction(string name, string description, IEnumerable<ActionParameter> parameters,
             AlgorithmBase algorithm, MethodInfo method)
         {
-            if (name == null) throw new ArgumentNullException(nameof(name));
-            if (description == null) throw new ArgumentNullException(nameof(description));
-            if (parameters == null) throw new ArgumentNullException(nameof(parameters));
-            if (algorithm == null) throw new ArgumentNullException(nameof(algorithm));
-            if (method == null) throw new ArgumentNullException(nameof(method));
-
-            Name = name;
-            Description = description;
-            Parameters = parameters;
-            m_Algorithm = algorithm;
-            m_Method = method;
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            Description = description ?? throw new ArgumentNullException(nameof(description));
+            Parameters = parameters ?? throw new ArgumentNullException(nameof(parameters));
+            _algorithm = algorithm ?? throw new ArgumentNullException(nameof(algorithm));
+            _method = method ?? throw new ArgumentNullException(nameof(method));
         }
 
         public string Name { get; }
@@ -39,7 +33,7 @@ namespace AlgoVis.AlgorithmConstruction
                     (parameter, parameterDescription) => parameterDescription.Type.IsInstanceOfType(parameter))
                 .All(v => v)) throw new ArgumentException();
 
-            return (IEnumerable<IActionStatement>) m_Method.Invoke(m_Algorithm, parameters);
+            return (IEnumerable<IActionStatement>) _method.Invoke(_algorithm, parameters);
         }
     }
 }

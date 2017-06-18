@@ -3,7 +3,7 @@
 namespace AlgoVis.AlgorithmConstruction
 {
     [AttributeUsage(AttributeTargets.Method)]
-    sealed class ActionAttribute : Attribute
+    public sealed class ActionAttribute : Attribute
     {
         public ActionAttribute(string name, string description)
         {

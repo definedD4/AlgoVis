@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace AlgoVis.Core
 {
@@ -11,6 +10,6 @@ namespace AlgoVis.Core
 
         IEnumerable<ActionParameter> Parameters { get; }
 
-        IEnumerable<IActionStatement> Execute(IEnumerable<object> parameters);
+        IEnumerable<IActionStatement> Execute(object[] parameters);
     }
 }

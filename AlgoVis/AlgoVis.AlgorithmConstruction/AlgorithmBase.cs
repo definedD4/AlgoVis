@@ -8,7 +8,7 @@ namespace AlgoVis.AlgorithmConstruction
 {
     public abstract class AlgorithmBase
     {
-        public Algorithm Build()
+        public CompiledAlgorithm Build()
         {
             Type info = this.GetType();
 
@@ -25,8 +25,8 @@ namespace AlgoVis.AlgorithmConstruction
                 var actionAttribute = methodInfo.GetCustomAttributes(typeof(ActionAttribute)).FirstOrDefault() as ActionAttribute;
                 if(actionAttribute == null) continue;
 
-                if(!methodInfo.ReturnType.GetInterfaces().Contains(typeof(IEnumerable<IActionStatement>)))
-                    throw new AlgorithmBuildException("Action method has invalid return type");
+                /*if(!methodInfo.ReturnType.GetInterfaces().Contains(typeof(IEnumerable<IActionStatement>)))
+                    throw new AlgorithmBuildException("Action method has invalid return type");*/ // TODO: Fix return type check
 
                 var paramerters = methodInfo.GetCustomAttributes(typeof(ParamAttribute))
                     .Select(attr => attr as ParamAttribute)
@@ -36,7 +36,7 @@ namespace AlgoVis.AlgorithmConstruction
                 actions.Add(new MethodAction(actionAttribute.Name, actionAttribute.Description, paramerters, this, methodInfo));
             }
 
-            return new Algorithm(name, description, actions);
+            return new CompiledAlgorithm(name, description, actions);
         }
     }
 }

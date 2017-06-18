@@ -3,7 +3,7 @@
 namespace AlgoVis.AlgorithmConstruction
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
-    sealed class ParamAttribute : Attribute
+    public sealed class ParamAttribute : Attribute
     {
         public ParamAttribute(string name, Type type)
         {

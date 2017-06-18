@@ -3,11 +3,11 @@
 namespace AlgoVis.AlgorithmConstruction
 {
     [AttributeUsage(AttributeTargets.Class)]
-    sealed class AlgorithmAttribute : Attribute
+    public sealed class AlgorithmAttribute : Attribute
     {
         public AlgorithmAttribute(string name)
         {
-            this.Name = name;
+            Name = name;
         }
 
         public string Name { get; private set; }

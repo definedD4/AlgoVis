@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace AlgoVis.Core
 {
-    public class Algorithm
+    public class CompiledAlgorithm
     {
-        public Algorithm(string name, string description, IEnumerable<IAction> actions)
+        public CompiledAlgorithm(string name, string description, IEnumerable<IAction> actions)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("Value cannot be null or whitespace.", nameof(name));

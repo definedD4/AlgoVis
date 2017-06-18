@@ -9,7 +9,7 @@ using System.Windows.Media;
 
 namespace AlgoVis.Presenation
 {
-    public class CircleDispaly : ReactiveObject
+    public class CircleDisplay : ReactiveObject
     {
         [Reactive] public object Content { get; set; }
 
