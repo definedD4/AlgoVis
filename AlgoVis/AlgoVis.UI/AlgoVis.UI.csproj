@@ -128,6 +128,18 @@
     <None Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AlgoVis.AlgorithmConstruction\AlgoVis.AlgorithmConstruction.csproj">
+      <Project>{E5893900-D270-49F2-B757-86D2EFB1036B}</Project>
+      <Name>AlgoVis.AlgorithmConstruction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlgoVis.Core\AlgoVis.Core.csproj">
+      <Project>{01BEF741-2103-4635-BAA6-75E47E0FC0C4}</Project>
+      <Name>AlgoVis.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AlgoVis.DataModel\AlgoVis.DataModel.csproj">
+      <Project>{A928AE93-C102-460D-8437-334D7E09E59C}</Project>
+      <Name>AlgoVis.DataModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AlgoVis.Presenation\AlgoVis.Presenation.csproj">
       <Project>{1CF0ABA8-D26E-4835-824B-22117B435184}</Project>
       <Name>AlgoVis.Presenation</Name>

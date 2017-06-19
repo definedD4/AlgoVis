@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoVis.AlgorithmConstructi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoVis.Presenation", "AlgoVis.Presenation\AlgoVis.Presenation.csproj", "{1CF0ABA8-D26E-4835-824B-22117B435184}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AF19E0C9-6EEE-4ADB-8D78-180571D8DBA9}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AlgoVis.Tests", "AlgoVis.Tests", "{AF19E0C9-6EEE-4ADB-8D78-180571D8DBA9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoVis.Tests.AlgorithmConstruction", "AlgoVis.Tests.AlgorithmConstruction\AlgoVis.Tests.AlgorithmConstruction.csproj", "{2D98DF1B-0592-4164-A478-0D0ED212DB88}"
 EndProject

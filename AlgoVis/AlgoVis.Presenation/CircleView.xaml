@@ -3,18 +3,26 @@
                     xmlns:local="clr-namespace:AlgoVis.Presenation">
     <DataTemplate DataType="{x:Type local:CircleDisplay}">
         <Grid Margin="4">
-            <Grid.RowDefinitions><RowDefinition Height="Auto"></RowDefinition></Grid.RowDefinitions>
-            <Grid.ColumnDefinitions><ColumnDefinition Width="Auto"></ColumnDefinition></Grid.ColumnDefinitions>
+            <Grid.RenderTransform>
+                <TranslateTransform X="{Binding Offset.X}" Y="{Binding Offset.Y}" />
+            </Grid.RenderTransform>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
             <Ellipse>
                 <Ellipse.Fill>
-                    <SolidColorBrush Color="{Binding Background}"/>
+                    <SolidColorBrush Color="{Binding Background}" />
                 </Ellipse.Fill>
             </Ellipse>
-            <ContentPresenter Content="{Binding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+            <ContentPresenter Content="{Binding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                      Margin="10">
                 <ContentPresenter.Resources>
                     <Style TargetType="TextBlock">
-                        <Setter Property="FontSize" Value="18"/>
-                        <Setter Property="FontWeight" Value="Bold"/>
+                        <Setter Property="FontSize" Value="18" />
+                        <Setter Property="FontWeight" Value="Bold" />
                     </Style>
                 </ContentPresenter.Resources>
             </ContentPresenter>
