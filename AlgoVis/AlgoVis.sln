@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoVis.UI", "AlgoVis.UI\AlgoVis.UI.csproj", "{33231CDE-5A8D-4D63-B1FA-79EF5313D1E7}"
 EndProject
@@ -16,6 +16,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoVis.Tests.AlgorithmConstruction", "AlgoVis.Tests.AlgorithmConstruction\AlgoVis.Tests.AlgorithmConstruction.csproj", "{2D98DF1B-0592-4164-A478-0D0ED212DB88}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoVis.DataModel", "AlgoVis.DataModel\AlgoVis.DataModel.csproj", "{A928AE93-C102-460D-8437-334D7E09E59C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoVis.Controls", "AlgoVis.Controls\AlgoVis.Controls.csproj", "{BC70EAA9-058C-4F37-ADA3-5FEC628B0F1C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AlgoVis.Sandbox", "AlgoVis.Sandbox", "{FA316225-1D10-4DFD-9EA0-09B9AC746B81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoVis.Sandbox.UITest", "AlgoVis.Sandbox.UITest\AlgoVis.Sandbox.UITest.csproj", "{E869CB9F-D88C-487D-9C62-117DFCADB574}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,11 +53,20 @@ Global
 		{A928AE93-C102-460D-8437-334D7E09E59C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A928AE93-C102-460D-8437-334D7E09E59C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A928AE93-C102-460D-8437-334D7E09E59C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC70EAA9-058C-4F37-ADA3-5FEC628B0F1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC70EAA9-058C-4F37-ADA3-5FEC628B0F1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC70EAA9-058C-4F37-ADA3-5FEC628B0F1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC70EAA9-058C-4F37-ADA3-5FEC628B0F1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E869CB9F-D88C-487D-9C62-117DFCADB574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E869CB9F-D88C-487D-9C62-117DFCADB574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E869CB9F-D88C-487D-9C62-117DFCADB574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E869CB9F-D88C-487D-9C62-117DFCADB574}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2D98DF1B-0592-4164-A478-0D0ED212DB88} = {AF19E0C9-6EEE-4ADB-8D78-180571D8DBA9}
+		{E869CB9F-D88C-487D-9C62-117DFCADB574} = {FA316225-1D10-4DFD-9EA0-09B9AC746B81}
 	EndGlobalSection
 EndGlobal
