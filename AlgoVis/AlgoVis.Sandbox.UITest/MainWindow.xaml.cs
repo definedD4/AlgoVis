@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using AlgoVis.DataModel;
+using AlgoVis.Presenation;
 
 namespace AlgoVis.Sandbox.UITest
 {
@@ -20,9 +22,16 @@ namespace AlgoVis.Sandbox.UITest
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly ArrayModel _arrayModel = new ArrayModel();
+
+        public ArrayDisplay Display { get; }
+
         public MainWindow()
         {
             InitializeComponent();
+            
+            Display = new ArrayDisplay(_arrayModel, x => new CircleDisplay(x));
+            Host.DisplayContent = Display;
         }
 
         private void AddItem(object sender, RoutedEventArgs e)
@@ -30,7 +39,7 @@ namespace AlgoVis.Sandbox.UITest
             int idx = int.Parse(IndexTextBox.Text);
             string value = ValueTextBox.Text;
 
-            ItemsControl.Items.Insert(idx, value);
+            _arrayModel.Insert(idx, new ItemModel(value));
         }
 
         private void SwapItems(object sender, RoutedEventArgs e)
@@ -38,9 +47,7 @@ namespace AlgoVis.Sandbox.UITest
             int first = int.Parse(SwapFirstTextBox.Text);
             int second = int.Parse(SwapSecondTextBox.Text);
 
-            var temp = ItemsControl.Items[first];
-            ItemsControl.Items[first] = ItemsControl.Items[second];
-            ItemsControl.Items[second] = temp;
+            _arrayModel.Swap(first, second);
         }
     }
 }

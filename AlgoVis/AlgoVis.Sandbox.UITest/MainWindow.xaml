@@ -5,46 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AlgoVis.Sandbox.UITest"
         xmlns:controls="clr-namespace:AlgoVis.Controls;assembly=AlgoVis.Controls"
+        xmlns:presenation="clr-namespace:AlgoVis.Presenation;assembly=AlgoVis.Presenation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525"
+        x:Name="Self">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ItemsControl Name="ItemsControl" Grid.Row="0">
-            <ItemsControl.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <controls:AnimatedPanel AnimationDuration="0:0:0.5"/>
-                </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid Margin="4">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Ellipse>
-                            <Ellipse.Fill>
-                                <SolidColorBrush Color="LightCoral"/>
-                            </Ellipse.Fill>
-                        </Ellipse>
-                        <ContentPresenter Content="{Binding }" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                      Margin="10">
-                            <ContentPresenter.Resources>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="FontSize" Value="18" />
-                                    <Setter Property="FontWeight" Value="Bold" />
-                                </Style>
-                            </ContentPresenter.Resources>
-                        </ContentPresenter>
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <presenation:DisplayHost x:Name="Host"/>
         <StackPanel Grid.Row="1">
             <GroupBox Header="Add">
                 <StackPanel Orientation="Horizontal" Margin="4">

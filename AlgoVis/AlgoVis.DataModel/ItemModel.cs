@@ -13,6 +13,8 @@ namespace AlgoVis.DataModel
 
         [Reactive] public Vector Offset { get; set; } = new Vector(0d, 0d);
 
+        [Reactive] public int Index { get; internal set; }
+
         public ItemModel(object value)
         {
             Value = value;

@@ -22,6 +22,8 @@ namespace AlgoVis.Presenation
 
         public Vector Offset { [ObservableAsProperty]get; }
 
+        public int Index { [ObservableAsProperty]get; }
+
         public CircleDisplay(ItemModel model)
         {
             Model = model;
@@ -32,8 +34,8 @@ namespace AlgoVis.Presenation
             this.WhenAnyValue(x => x.Model.Background)
                 .ToPropertyEx(this, x => x.Background);
 
-            this.WhenAnyValue(x => x.Model.Offset)
-                .ToPropertyEx(this, x => x.Offset);
+            this.WhenAnyValue(x => x.Model.Index)
+                .ToPropertyEx(this, x => x.Index);
         }
     }
 }

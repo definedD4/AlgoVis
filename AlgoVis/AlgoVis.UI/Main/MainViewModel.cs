@@ -28,22 +28,22 @@ namespace AlgoVis.UI.Main
             {
                 Model = new ArrayModel();
 
-                Model.Items.AddRange(new int[]
+                /*Model.Items.AddRange(new int[]
                 {
                     1,
                     3,
                     6,
                     2,
                     79
-                }.Select(x => new ItemModel(x)));
+                }.Select(x => new ItemModel(x)));*/
             }
 
             [Action("Test", "Test")]
             public IEnumerable<IActionStatement> Test()
             {
-                Model.Items.Add(new ItemModel(8));
+                Model.Add(new ItemModel(8));
                 yield return new WaitStatement(TimeSpan.FromSeconds(0.75d));
-                Model.Items.Add(new ItemModel(13));
+                Model.Add(new ItemModel(13));
                 yield return null;
             }
         }

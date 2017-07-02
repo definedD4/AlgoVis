@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:AlgoVis.Presenation">
+                    xmlns:local="clr-namespace:AlgoVis.Presenation"
+                    xmlns:controls="clr-namespace:AlgoVis.Controls;assembly=AlgoVis.Controls">
     <DataTemplate DataType="{x:Type local:CircleDisplay}">
         <Grid Margin="4">
             <Grid.RenderTransform>

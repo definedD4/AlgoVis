@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 namespace AlgoVis.Controls
@@ -15,7 +17,7 @@ namespace AlgoVis.Controls
         }
 
         public static readonly DependencyProperty AnimationDurationProperty = DependencyProperty.Register(
-            "AnimationDuration", typeof(TimeSpan), typeof(AnimatedPanel), new PropertyMetadata(default(TimeSpan)));
+            "AnimationDuration", typeof(TimeSpan), typeof(AnimatedPanel), new PropertyMetadata(TimeSpan.Zero));
 
         public TimeSpan AnimationDuration
         {
@@ -36,6 +38,19 @@ namespace AlgoVis.Controls
             return (double) element.GetValue(HorizontalOffsetProperty);
         }
 
+        public static readonly DependencyProperty IndexProperty = DependencyProperty.RegisterAttached(
+            "Index", typeof(int), typeof(AnimatedPanel), new FrameworkPropertyMetadata(default(int), FrameworkPropertyMetadataOptions.AffectsParentArrange));
+
+        public static void SetIndex(DependencyObject element, int value)
+        {
+            element.SetValue(IndexProperty, value);
+        }
+
+        public static int GetIndex(DependencyObject element)
+        {
+            return (int) element.GetValue(IndexProperty);
+        }
+
         protected override void OnVisualChildrenChanged(DependencyObject visualAdded, DependencyObject visualRemoved)
         {
             AssignOffsets(visualAdded);
@@ -43,8 +58,11 @@ namespace AlgoVis.Controls
 
         private void AssignOffsets(DependencyObject recentlyAdded = null)
         {
+            var sortedChildren = Children.Cast<UIElement>().ToList();
+            sortedChildren.Sort((a, b) => GetIndex(a) - GetIndex(b));
+
             double offset = 0d;
-            foreach (UIElement child in InternalChildren)
+            foreach (UIElement child in sortedChildren)
             {
                 if (ReferenceEquals(child, recentlyAdded))
                 {
@@ -79,6 +97,8 @@ namespace AlgoVis.Controls
 
         protected override Size ArrangeOverride(Size arrangeBounds)
         {
+            AssignOffsets();
+
             foreach (UIElement child in InternalChildren)
             {
                 child.Arrange(new Rect(new Point(GetHorizontalOffset(child), 0d), new Size(child.DesiredSize.Width, arrangeBounds.Height)));
