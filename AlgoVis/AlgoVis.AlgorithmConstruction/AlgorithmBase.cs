@@ -36,7 +36,9 @@ namespace AlgoVis.AlgorithmConstruction
                 actions.Add(new MethodAction(actionAttribute.Name, actionAttribute.Description, paramerters, this, methodInfo));
             }
 
-            return new CompiledAlgorithm(name, description, actions);
+            return new CompiledAlgorithm(name, description, actions, Display);
         }
+
+        public abstract object Display { get; }
     }
 }

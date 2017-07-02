@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:AlgoVis.UI.Resources">
+    <Viewbox x:Key="IconPlus" Width="12" Height="12">
+        <Canvas Width="24" Height="24">
+            <Path Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" Fill="Black" />
+        </Canvas>
+    </Viewbox>
+</ResourceDictionary>

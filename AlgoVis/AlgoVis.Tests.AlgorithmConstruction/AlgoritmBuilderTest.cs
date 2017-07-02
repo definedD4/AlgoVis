@@ -33,6 +33,8 @@ namespace AlgoVis.Tests.AlgorithmConstruction
                 IntActionParam = x;
                 yield return null;
             }
+
+            public override object Display => null;
         }
 
         [TestMethod]

@@ -5,9 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AlgoVis.UI.Main"
         xmlns:presenation="clr-namespace:AlgoVis.Presenation;assembly=AlgoVis.Presenation"
+        xmlns:reactiveUi="http://reactiveui.net"
         mc:Ignorable="d"
-        Title="MainView" Height="300" Width="300">
+        Title="MainView" Height="349" Width="495">
     <Grid>
-        <presenation:DisplayHost x:Name="DisplayHost"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <reactiveUi:ViewModelViewHost x:Name="AlgorithmsList" VerticalAlignment="Stretch" />
+        <presenation:DisplayHost x:Name="DisplayHost" Grid.Column="1"/>
     </Grid>
 </Window>

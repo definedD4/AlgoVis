@@ -18,6 +18,8 @@ namespace AlgoVis.Tests.AlgorithmConstruction
                 Executed = true;
                 Param = x;
             }
+
+            public override object Display => null;
         }
 
         [TestMethod]
