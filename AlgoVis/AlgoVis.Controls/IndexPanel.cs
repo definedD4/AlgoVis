@@ -9,15 +9,15 @@ using System.Windows.Media.Animation;
 
 namespace AlgoVis.Controls
 {
-    public class AnimatedPanel : Panel
+    public class IndexPanel : Panel
     {
-        public AnimatedPanel()
+        public IndexPanel()
         {
 
         }
 
         public static readonly DependencyProperty AnimationDurationProperty = DependencyProperty.Register(
-            "AnimationDuration", typeof(TimeSpan), typeof(AnimatedPanel), new PropertyMetadata(TimeSpan.Zero));
+            "AnimationDuration", typeof(TimeSpan), typeof(IndexPanel), new PropertyMetadata(TimeSpan.Zero));
 
         public TimeSpan AnimationDuration
         {
@@ -26,7 +26,7 @@ namespace AlgoVis.Controls
         }
 
         public static readonly DependencyProperty HorizontalOffsetProperty = DependencyProperty.RegisterAttached(
-            "HorizontalOffset", typeof(double), typeof(AnimatedPanel), new FrameworkPropertyMetadata(0d, FrameworkPropertyMetadataOptions.AffectsParentArrange));
+            "HorizontalOffset", typeof(double), typeof(IndexPanel), new FrameworkPropertyMetadata(0d, FrameworkPropertyMetadataOptions.AffectsParentArrange));
 
         public static void SetHorizontalOffset(DependencyObject element, double value)
         {
@@ -39,7 +39,7 @@ namespace AlgoVis.Controls
         }
 
         public static readonly DependencyProperty IndexProperty = DependencyProperty.RegisterAttached(
-            "Index", typeof(int), typeof(AnimatedPanel), new FrameworkPropertyMetadata(default(int), FrameworkPropertyMetadataOptions.AffectsParentArrange));
+            "Index", typeof(int), typeof(IndexPanel), new FrameworkPropertyMetadata(default(int), FrameworkPropertyMetadataOptions.AffectsParentArrange));
 
         public static void SetIndex(DependencyObject element, int value)
         {

@@ -6,12 +6,12 @@
         <ItemsControl ItemsSource="{Binding DisplayItems}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <controls:AnimatedPanel AnimationDuration="0:0:0.5"/>
+                    <controls:IndexPanel AnimationDuration="0:0:0.5"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemContainerStyle>
                 <Style>
-                    <Setter Property="controls:AnimatedPanel.Index" Value="{Binding Path=Index}"/>
+                    <Setter Property="controls:IndexPanel.Index" Value="{Binding Path=Index}"/>
                 </Style>
             </ItemsControl.ItemContainerStyle>
         </ItemsControl>
