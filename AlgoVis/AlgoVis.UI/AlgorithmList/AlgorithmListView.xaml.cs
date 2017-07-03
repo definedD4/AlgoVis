@@ -30,6 +30,8 @@ namespace AlgoVis.UI.AlgorithmList
             this.OneWayBind(ViewModel, vm => vm.DisplayItems, v => v.AlgorithmsListBox.ItemsSource);
 
             this.BindCommand(ViewModel, vm => vm.Add, v => v.AddButton);
+
+            this.Bind(ViewModel, vm => vm.SelectedAlgorithm, v => v.AlgorithmsListBox.SelectedItem);
         }
 
         object IViewFor.ViewModel

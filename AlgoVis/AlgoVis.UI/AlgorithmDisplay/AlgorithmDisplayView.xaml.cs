@@ -10,37 +10,36 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ReactiveUI;
 
-namespace AlgoVis.UI.Main
+namespace AlgoVis.UI.AlgorithmDisplay
 {
     /// <summary>
-    /// Interaction logic for MainView.xaml
+    /// Логика взаимодействия для AlgorithmDisplayView.xaml
     /// </summary>
-    public partial class MainView : Window, IViewFor<MainViewModel>
+    public partial class AlgorithmDisplayView : UserControl, IViewFor<AlgorithmDisplayViewModel>
     {
-        public MainView()
+        public AlgorithmDisplayView()
         {
             InitializeComponent();
 
-            this.OneWayBind(ViewModel, vm => vm.AlgorithmList, v => v.AlgorithmsList.ViewModel);
-
-            this.OneWayBind(ViewModel, vm => vm.CurrentAlgorithm, v => v.AlgorithmDisplay.ViewModel);
+            this.OneWayBind(ViewModel, vm => vm.AlgorithmTitle, v => v.TitleTextBox.Text);
         }
 
         object IViewFor.ViewModel
         {
             get { return ViewModel; }
-            set { ViewModel = (MainViewModel)value; }
+            set { ViewModel = (AlgorithmDisplayViewModel)value; }
         }
 
         public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register(
-            nameof(ViewModel), typeof(MainViewModel), typeof(MainView), new PropertyMetadata(default(MainViewModel)));
+            nameof(ViewModel), typeof(AlgorithmDisplayViewModel), typeof(AlgorithmDisplayView), new PropertyMetadata(default(AlgorithmDisplayViewModel)));
 
-        public MainViewModel ViewModel
+        public AlgorithmDisplayViewModel ViewModel
         {
-            get { return (MainViewModel) GetValue(ViewModelProperty); }
+            get { return (AlgorithmDisplayViewModel)GetValue(ViewModelProperty); }
             set { SetValue(ViewModelProperty, value); }
         }
     }

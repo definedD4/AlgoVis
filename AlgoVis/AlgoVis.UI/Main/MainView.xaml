@@ -7,13 +7,17 @@
         xmlns:presenation="clr-namespace:AlgoVis.Presenation;assembly=AlgoVis.Presenation"
         xmlns:reactiveUi="http://reactiveui.net"
         mc:Ignorable="d"
-        Title="MainView" Height="349" Width="495">
+        Title="MainView" Height="541" Width="829">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="240"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <reactiveUi:ViewModelViewHost x:Name="AlgorithmsList" VerticalAlignment="Stretch" />
-        <presenation:DisplayHost x:Name="DisplayHost" Grid.Column="1"/>
+        <reactiveUi:ViewModelViewHost x:Name="AlgorithmsList" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" />
+        <reactiveUi:ViewModelViewHost x:Name="AlgorithmDisplay" Grid.Column="1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+            <reactiveUi:ViewModelViewHost.DefaultContent>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="LightGray" Text="Select algorithm to start working"/>
+            </reactiveUi:ViewModelViewHost.DefaultContent>
+        </reactiveUi:ViewModelViewHost>
     </Grid>
 </Window>

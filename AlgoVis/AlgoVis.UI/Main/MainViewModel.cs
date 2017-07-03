@@ -11,6 +11,7 @@ using AlgoVis.Core;
 using AlgoVis.Core.ActionStatements;
 using AlgoVis.DataModel;
 using AlgoVis.Presenation;
+using AlgoVis.UI.AlgorithmDisplay;
 using AlgoVis.UI.AlgorithmList;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
@@ -21,8 +22,14 @@ namespace AlgoVis.UI.Main
     {
         public AlgorithmListViewModel AlgorithmList { get; } = new AlgorithmListViewModel();
 
+        public AlgorithmDisplayViewModel CurrentAlgorithm { [ObservableAsProperty] get; }
+
         public MainViewModel()
         {
+            AlgorithmList.SelectAlgorithm
+                .Select(a => a != null ? new AlgorithmDisplayViewModel(a) : null)
+                .ToPropertyEx(this, x => x.CurrentAlgorithm);
+
             Seed();
         }
 

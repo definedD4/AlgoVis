@@ -15,7 +15,11 @@ namespace AlgoVis.UI.AlgorithmList
 
         [Reactive] public string SearchString { get; set; }
 
+        [Reactive] public AlgorithmListItemViewModel SelectedAlgorithm { get; set; }
+
         public ReactiveCommand Add { get; }
+
+        public ReactiveCommand<AlgorithmListItemViewModel, CompiledAlgorithm> SelectAlgorithm { get; }
 
         public AlgorithmListViewModel()
         {
@@ -29,6 +33,11 @@ namespace AlgoVis.UI.AlgorithmList
                 .ToPropertyEx(this, x => x.DisplayItems);
 
             Add = ReactiveCommand.Create(() => throw new NotImplementedException());
+
+            SelectAlgorithm = ReactiveCommand.Create<AlgorithmListItemViewModel, CompiledAlgorithm>(vm => vm?.Algorithm);
+
+            this.WhenAnyValue(x => x.SelectedAlgorithm)
+                .InvokeCommand(SelectAlgorithm);
         }
 
         private bool StringMatches(string matching, string filter)

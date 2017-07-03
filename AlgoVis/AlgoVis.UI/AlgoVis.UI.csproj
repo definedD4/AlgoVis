@@ -99,6 +99,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AlgorithmDisplay\AlgorithmDisplayView.xaml.cs">
+      <DependentUpon>AlgorithmDisplayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlgorithmDisplay\AlgorithmDisplayViewModel.cs" />
     <Compile Include="AlgorithmListItem\AlgorithmListItemView.xaml.cs">
       <DependentUpon>AlgorithmListItemView.xaml</DependentUpon>
     </Compile>
@@ -145,6 +149,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="AlgorithmDisplay\AlgorithmDisplayView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AlgorithmListItem\AlgorithmListItemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
