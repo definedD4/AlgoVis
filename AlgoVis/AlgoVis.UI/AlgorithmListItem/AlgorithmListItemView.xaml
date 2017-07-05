@@ -6,7 +6,10 @@
              xmlns:local="clr-namespace:AlgoVis.UI.AlgorithmListItem"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <TextBlock x:Name="DisplayNameTextBox" Margin="2"/>        
+    <Grid Name="ContainerGrid">
+        <Grid.InputBindings>
+            <MouseBinding Gesture="LeftDoubleClick" x:Name="DoubleClickMouseBinding"/>
+        </Grid.InputBindings>
+        <TextBlock x:Name="DisplayNameTextBox" Margin="2" Text="Design time text"/>
     </Grid>
 </UserControl>

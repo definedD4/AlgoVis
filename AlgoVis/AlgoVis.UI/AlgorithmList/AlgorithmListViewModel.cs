@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reactive.Linq;
 using AlgoVis.Core;
+using AlgoVis.UI.AlgorithmDetails;
 using AlgoVis.UI.AlgorithmListItem;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
@@ -17,9 +18,9 @@ namespace AlgoVis.UI.AlgorithmList
 
         [Reactive] public AlgorithmListItemViewModel SelectedAlgorithm { get; set; }
 
-        public ReactiveCommand Add { get; }
+        public AlgorithmDetailsViewModel DetailsViewModel { [ObservableAsProperty] get; }
 
-        public ReactiveCommand<AlgorithmListItemViewModel, CompiledAlgorithm> SelectAlgorithm { get; }
+        public ReactiveCommand Add { get; }
 
         public AlgorithmListViewModel()
         {
@@ -32,12 +33,12 @@ namespace AlgoVis.UI.AlgorithmList
                 )
                 .ToPropertyEx(this, x => x.DisplayItems);
 
-            Add = ReactiveCommand.Create(() => throw new NotImplementedException());
-
-            SelectAlgorithm = ReactiveCommand.Create<AlgorithmListItemViewModel, CompiledAlgorithm>(vm => vm?.Algorithm);
-
             this.WhenAnyValue(x => x.SelectedAlgorithm)
-                .InvokeCommand(SelectAlgorithm);
+                .Where(vm => vm != null)
+                .Select(vm => new AlgorithmDetailsViewModel(vm.Algorithm))
+                .ToPropertyEx(this, x => x.DetailsViewModel);
+
+            Add = ReactiveCommand.Create(() => throw new NotImplementedException());
         }
 
         private bool StringMatches(string matching, string filter)

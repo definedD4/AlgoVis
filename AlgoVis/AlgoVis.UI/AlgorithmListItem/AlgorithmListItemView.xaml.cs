@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,6 +27,8 @@ namespace AlgoVis.UI.AlgorithmListItem
             InitializeComponent();
 
             this.OneWayBind(ViewModel, vm => vm.DisplayName, v => v.DisplayNameTextBox.Text);
+
+            this.BindCommand(ViewModel, vm => vm.Open, v => v.DoubleClickMouseBinding);
         }
 
         object IViewFor.ViewModel

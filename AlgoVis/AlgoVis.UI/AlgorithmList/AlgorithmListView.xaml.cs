@@ -32,6 +32,8 @@ namespace AlgoVis.UI.AlgorithmList
             this.BindCommand(ViewModel, vm => vm.Add, v => v.AddButton);
 
             this.Bind(ViewModel, vm => vm.SelectedAlgorithm, v => v.AlgorithmsListBox.SelectedItem);
+
+            this.OneWayBind(ViewModel, vm => vm.DetailsViewModel, v => v.DetailsViewModelHost.ViewModel);
         }
 
         object IViewFor.ViewModel
