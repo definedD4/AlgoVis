@@ -11,10 +11,12 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <reactiveUi:ViewModelViewHost x:Name="AlgorithmsList" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" />
-        <reactiveUi:ViewModelViewHost x:Name="AlgorithmDisplay" Grid.Column="1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+        <GridSplitter Grid.Column="1" Style="{StaticResource VerticalGridSplitter}"/>
+        <reactiveUi:ViewModelViewHost x:Name="AlgorithmDisplay" Grid.Column="2" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
             <reactiveUi:ViewModelViewHost.DefaultContent>
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="LightGray" Text="Select algorithm to start working"/>
             </reactiveUi:ViewModelViewHost.DefaultContent>
