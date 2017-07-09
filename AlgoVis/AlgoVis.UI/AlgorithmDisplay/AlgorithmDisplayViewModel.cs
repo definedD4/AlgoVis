@@ -1,4 +1,8 @@
-﻿using AlgoVis.Core;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using AlgoVis.Core;
+using AlgoVis.UI.AlgorithmAction;
 using ReactiveUI;
 
 namespace AlgoVis.UI.AlgorithmDisplay
@@ -7,11 +11,17 @@ namespace AlgoVis.UI.AlgorithmDisplay
     {
         private readonly CompiledAlgorithm _algorithm;
 
-        public string AlgorithmTitle => _algorithm.Name;
+        public string Title => _algorithm.Name;
+
+        public object Display => _algorithm.Display;
+
+        public IReadOnlyList<AlgorithmActionViewModel> Actions { get; }
 
         public AlgorithmDisplayViewModel(CompiledAlgorithm algorithm)
         {
-            _algorithm = algorithm;
+            _algorithm = algorithm ?? throw new ArgumentNullException(nameof(algorithm));
+
+            Actions = _algorithm.Actions.Select(act => new AlgorithmActionViewModel(act)).ToList();
         }
     }
 }

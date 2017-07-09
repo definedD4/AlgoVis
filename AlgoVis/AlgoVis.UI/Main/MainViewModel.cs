@@ -9,7 +9,6 @@ using System.Windows.Threading;
 using AlgoVis.AlgorithmConstruction;
 using AlgoVis.Core;
 using AlgoVis.Core.ActionStatements;
-using AlgoVis.DataModel;
 using AlgoVis.Presenation;
 using AlgoVis.UI.AlgorithmDisplay;
 using AlgoVis.UI.AlgorithmList;
@@ -36,8 +35,27 @@ namespace AlgoVis.UI.Main
 
         private void Seed()
         {
-            AlgorithmList.Algorithms.Add(new CompiledAlgorithm("Quicksort" , "A sorting algorithm with O(n*log(n)) complexity.", Enumerable.Empty<IAction>(), null));
             AlgorithmList.Algorithms.Add(new CompiledAlgorithm("Bubble sort", "A sorting algorithm.", Enumerable.Empty<IAction>(), null));
+            AlgorithmList.Algorithms.Add(new Quicksort().Build());
+        }
+
+        [Algorithm("Quicksort", Description = "A sorting algorithm.")]
+        private class Quicksort : AlgorithmBase
+        {
+            public override object Display { get; } = null;
+
+            [Action("Add", "Adds a new item to the array.")]
+            [Param("Value", typeof(int))]
+            public void AddItem(int value)
+            {
+                
+            }
+
+            [Action("Sort", "Sorts the array.")]
+            public void Sort()
+            {
+
+            }
         }
     }
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using AlgoVis.UI.AlgorithmAction;
 using AlgoVis.UI.AlgorithmDetails;
 using AlgoVis.UI.AlgorithmDisplay;
 using AlgoVis.UI.AlgorithmList;
@@ -39,6 +39,7 @@ namespace AlgoVis.UI
             Locator.CurrentMutable.Register(() => new AlgorithmListItemView(), typeof(IViewFor<AlgorithmListItemViewModel>));
             Locator.CurrentMutable.Register(() => new AlgorithmDisplayView(), typeof(IViewFor<AlgorithmDisplayViewModel>));
             Locator.CurrentMutable.Register(() => new AlgorithmDetailsView(), typeof(IViewFor<AlgorithmDetailsViewModel>));
+            Locator.CurrentMutable.Register(() => new AlgorithmActionView(), typeof(IViewFor<AlgorithmActionViewModel>));
         }
     }
 }

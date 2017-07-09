@@ -10,7 +10,14 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="140"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="TitleTextBox" Text="Default" FontSize="24" TextDecorations="Underline"/>
+        <ContentPresenter x:Name="AlgorithmContentPresenter" Grid.Row="1"/>
+        <GridSplitter Style="{StaticResource HorizontalGridSplitter}" Grid.Row="2"/>
+        <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="ActionsItemsControl"/>
+        </ScrollViewer>
     </Grid>
 </UserControl>

@@ -25,7 +25,11 @@ namespace AlgoVis.UI.AlgorithmDisplay
         {
             InitializeComponent();
 
-            this.OneWayBind(ViewModel, vm => vm.AlgorithmTitle, v => v.TitleTextBox.Text);
+            this.OneWayBind(ViewModel, vm => vm.Title, v => v.TitleTextBox.Text);
+
+            this.OneWayBind(ViewModel, vm => vm.Display, v => v.AlgorithmContentPresenter.Content);
+
+            this.OneWayBind(ViewModel, vm => vm.Actions, v => v.ActionsItemsControl.ItemsSource);
         }
 
         object IViewFor.ViewModel

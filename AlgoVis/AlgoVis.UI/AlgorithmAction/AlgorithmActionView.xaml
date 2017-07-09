@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="AlgoVis.UI.AlgorithmAction.AlgorithmActionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AlgoVis.UI.AlgorithmAction"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <TextBlock x:Name="NameTextBlock" Text="Desing time name"/>        
+    </Grid>
+</UserControl>
