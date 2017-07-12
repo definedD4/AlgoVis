@@ -93,6 +93,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AlgorithmActionParam\AlgorithmActionParamViewModel.cs" />
     <Compile Include="AlgorithmAction\AlgorithmActionView.xaml.cs">
       <DependentUpon>AlgorithmActionView.xaml</DependentUpon>
     </Compile>
@@ -119,6 +120,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\ParamTypeNotSupported.cs" />
+    <Compile Include="Exceptions\ParamValidationNotPassedException.cs" />
     <Compile Include="Main\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>

@@ -4,17 +4,17 @@ namespace AlgoVis.Core
 {
     public class ActionParameter
     {
-        public ActionParameter(string name, Type type)
+        public ActionParameter(string name, Type type, Predicate<object> validator = null)
         {
-            if (name == null) throw new ArgumentNullException(nameof(name));
-            if (type == null) throw new ArgumentNullException(nameof(type));
-
-            Name = name;
-            Type = type;
+            Name = name ?? throw new ArgumentNullException(nameof(name));
+            Type = type ?? throw new ArgumentNullException(nameof(type));
+            Validator = validator ?? (x => true);
         }
 
         public string Name { get; }
 
         public Type Type { get; }
+
+        public Predicate<object> Validator { get; }
     }
 }
