@@ -15,9 +15,13 @@ namespace AlgoVis.UI.AlgorithmActionParam
     {
         private readonly ActionParameter _parameter;
 
+        public string Name => _parameter.Name;
+
         [Reactive] public string Input { get; set; }
 
         public bool Valid { [ObservableAsProperty] get; }
+
+        public IObservable<bool> ValidObservable { get; }
 
         public object Value { [ObservableAsProperty] get; }
 
@@ -47,9 +51,10 @@ namespace AlgoVis.UI.AlgorithmActionParam
                     }
                 });
 
-            converted
-                .Select(t => t.Item1)
-                .ToPropertyEx(this, x => x.Valid);
+            ValidObservable = converted
+                .Select(t => t.Item1);
+                
+            ValidObservable.ToPropertyEx(this, x => x.Valid);
 
             converted
                 .Select(t => t.Item2)

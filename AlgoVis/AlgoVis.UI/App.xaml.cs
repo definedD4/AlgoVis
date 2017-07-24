@@ -12,6 +12,7 @@ using AlgoVis.UI.AlgorithmListItem;
 using AlgoVis.UI.Main;
 using ReactiveUI;
 using Splat;
+using AlgoVis.UI.AlgorithmActionParam;
 
 namespace AlgoVis.UI
 {
@@ -40,6 +41,7 @@ namespace AlgoVis.UI
             Locator.CurrentMutable.Register(() => new AlgorithmDisplayView(), typeof(IViewFor<AlgorithmDisplayViewModel>));
             Locator.CurrentMutable.Register(() => new AlgorithmDetailsView(), typeof(IViewFor<AlgorithmDetailsViewModel>));
             Locator.CurrentMutable.Register(() => new AlgorithmActionView(), typeof(IViewFor<AlgorithmActionViewModel>));
+            Locator.CurrentMutable.Register(() => new AlgorithmActionParamView(), typeof(IViewFor<AlgorithmActionParamViewModel>));
         }
     }
 }

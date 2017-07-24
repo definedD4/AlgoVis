@@ -11,6 +11,15 @@
             <Expander.Header>
                 <TextBlock x:Name="NameTextBlock" Text="Desing time name"/>
             </Expander.Header>
+            <StackPanel>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="1" MaxHeight="100">
+                    <TextBlock x:Name="DescriptionTextBlock" TextWrapping="Wrap">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </TextBlock>
+                </ScrollViewer>
+                <ItemsControl Name="ParamsItemsControl" Margin="1"/>
+                <Button Name="ExecuteButon" HorizontalAlignment="Right" Margin="1" Content="Execute"/>
+            </StackPanel>
         </Expander>
         
     </Grid>

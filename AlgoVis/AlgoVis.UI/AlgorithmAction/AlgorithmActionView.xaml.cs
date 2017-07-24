@@ -26,6 +26,12 @@ namespace AlgoVis.UI.AlgorithmAction
             InitializeComponent();
 
             this.OneWayBind(ViewModel, vm => vm.Name, v => v.NameTextBlock.Text);
+
+            this.OneWayBind(ViewModel, vm => vm.Description, v => v.DescriptionTextBlock.Text);
+
+            this.OneWayBind(ViewModel, vm => vm.Parameters, v => v.ParamsItemsControl.ItemsSource);
+
+            this.BindCommand(ViewModel, vm => vm.Execute, v => v.ExecuteButon);
         }
 
         public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register(
