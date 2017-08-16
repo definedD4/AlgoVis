@@ -19,5 +19,12 @@ namespace AlgoVis.DataModel
         {
             Value = value;
         }
+
+        public void ResetMetadata()
+        {
+            Background = Colors.Red;
+
+            Offset = new Vector(0d, 0d);
+        }
     }
 }

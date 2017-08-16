@@ -7,7 +7,7 @@ using ReactiveUI;
 
 namespace AlgoVis.DataModel
 {
-    public class ArrayModel
+    public class ArrayModel : IModel, IHasArrayMetadata, IArrayMetadata
     {
         private ReactiveList<ItemModel> _items = new ReactiveList<ItemModel>();
         private List<int> _indices = new List<int>();
@@ -15,6 +15,13 @@ namespace AlgoVis.DataModel
         public IReadOnlyReactiveCollection<ItemModel> Items => _items;
 
         public ItemModel this[int index] => _items[_indices[index]];
+
+        public ArrayModel(ModelHolder owner)
+        {
+            if(owner == null) throw new ArgumentNullException(nameof(owner));
+
+            owner.AddModel(this);
+        }
 
         public void Add(ItemModel item)
         {
@@ -51,6 +58,16 @@ namespace AlgoVis.DataModel
         {
             _items.Clear();
             _indices.Clear();
+        }
+
+        public IArrayMetadata Metadata => this;
+
+        public void ResetMetadata()
+        {
+            foreach (var item in _items)
+            {
+                item.ResetMetadata();
+            }
         }
     }
 }

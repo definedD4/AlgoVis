@@ -43,12 +43,13 @@ namespace AlgoVis.UI.Main
         [Algorithm("Quicksort", Description = "A sorting algorithm.")]
         private class Quicksort : AlgorithmBase
         {
-            private readonly ArrayModel _model = new ArrayModel();
+            private readonly ArrayModel _model;
 
             public override object Display { get; }
 
             public Quicksort()
             {
+                _model = new ArrayModel(this);
                 Display = new ArrayDisplay(_model, model => new CircleDisplay(model));
                 _model.Add(new ItemModel(2));
                 _model.Add(new ItemModel(7));
@@ -146,12 +147,13 @@ namespace AlgoVis.UI.Main
         [Algorithm("BubleSort", Description = "A sorting algorithm.")]
         private class BubleSort : AlgorithmBase
         {
-            private readonly ArrayModel _model = new ArrayModel();
+            private readonly ArrayModel _model;
 
             public override object Display { get; }
 
             public BubleSort()
             {
+                _model = new ArrayModel(this);
                 Display = new ArrayDisplay(_model, model => new CircleDisplay(model));
                 _model.Add(new ItemModel(2));
                 _model.Add(new ItemModel(7));
@@ -187,7 +189,6 @@ namespace AlgoVis.UI.Main
             [Action("Sort", "Sorts the array.")]
             public IEnumerable<IActionStatement> Sort()
             {
-                Console.WriteLine("Start sort");
                 int len = _model.Items.Count;
 
                 bool swap;
@@ -196,8 +197,8 @@ namespace AlgoVis.UI.Main
                     swap = false;
                     for (int i = 0; i < len - 1; i++)
                     {
-                        _model[i].Background = Colors.Blue;
-                        _model[i + 1].Background = Colors.Yellow;
+                        this.On().Local(() => i)
+                            .UpdateMetadata(_model, (meta, x) => meta[x].Background = Colors.Blue);
 
                         yield return new WaitStatement(TimeSpan.FromSeconds(1));
 
@@ -208,8 +209,6 @@ namespace AlgoVis.UI.Main
 
                             yield return new WaitStatement(TimeSpan.FromSeconds(1));                            
                         }                       
-                        _model[i].Background = Colors.Red;
-                        _model[i + 1].Background = Colors.Red;
                     }
                 } while (swap);
             }

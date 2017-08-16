@@ -33,7 +33,18 @@ namespace AlgoVis.AlgorithmConstruction
                     (parameter, parameterDescription) => parameterDescription.Type.IsInstanceOfType(parameter))
                 .All(v => v)) throw new ArgumentException();
 
-            return (IEnumerable<IActionStatement>) _method.Invoke(_algorithm, parameters);
+            _algorithm.ResetOnLocals();
+            _algorithm.ResetMetadata();
+
+            var enumerable = (IEnumerable<IActionStatement>) _method.Invoke(_algorithm, parameters);
+
+            _algorithm.FireOnLocalUpdates();
+            foreach (var statement in enumerable)
+            {
+                yield return statement;
+                _algorithm.ResetMetadata();
+                _algorithm.FireOnLocalUpdates();
+            }
         }
     }
 }

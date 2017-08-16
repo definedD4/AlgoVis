@@ -69,8 +69,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayModel.cs" />
+    <Compile Include="Interfaces.cs" />
     <Compile Include="ItemModel.cs" />
     <Compile Include="ItemPropertyChange.cs" />
+    <Compile Include="ModelHolder.cs" />
+    <Compile Include="OnLocals.cs" />
+    <Compile Include="OnLocalUpdate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

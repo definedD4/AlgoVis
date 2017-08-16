@@ -53,6 +53,10 @@
       <Project>{01BEF741-2103-4635-BAA6-75E47E0FC0C4}</Project>
       <Name>AlgoVis.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AlgoVis.DataModel\AlgoVis.DataModel.csproj">
+      <Project>{A928AE93-C102-460D-8437-334D7E09E59C}</Project>
+      <Name>AlgoVis.DataModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
