@@ -3,6 +3,7 @@ using AlgoVis.Core;
 using ReactiveUI;
 using AlgoVis.UI.AlgorithmActionParam;
 using System.Linq;
+using System.Reactive;
 using System.Reactive.Linq;
 
 namespace AlgoVis.UI.AlgorithmAction
@@ -17,7 +18,7 @@ namespace AlgoVis.UI.AlgorithmAction
 
         public IReactiveCollection<AlgorithmActionParamViewModel> Parameters { get; }
 
-        public ReactiveCommand Execute { get; }
+        public ReactiveCommand<Unit, ActionExecutePack> Execute { get; }
 
         public AlgorithmActionViewModel(IAction action)
         {
@@ -26,15 +27,15 @@ namespace AlgoVis.UI.AlgorithmAction
             Parameters = _action.Parameters
                 .CreateDerivedCollection(param => new AlgorithmActionParamViewModel(param));
 
-            var canExecute = Observable.CombineLatest(
-                Parameters.Select(p => p.ValidObservable)
-                )
-                .Select(v => v.All(x => x));
+            var canExecute = Parameters.Count() == 0 
+                ? Observable.Return(true) 
+                : Parameters
+                .Select(p => p.ValidObservable)
+                .CombineLatest()
+                .Select(v => v.All(x => x))
+                .Do(x => Console.WriteLine($"{Name}: can execute = {x}"));
 
-            Execute = ReactiveCommand.Create(() =>
-            {
-                _action.Execute(Parameters.Select(p => p.Value).ToArray());
-            }, canExecute);
+            Execute = ReactiveCommand.Create(() => new ActionExecutePack(_action, Parameters.Select(p => p.Value).ToArray()), canExecute);
         }
     }
 }

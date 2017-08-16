@@ -14,6 +14,8 @@ namespace AlgoVis.DataModel
 
         public IReadOnlyReactiveCollection<ItemModel> Items => _items;
 
+        public ItemModel this[int index] => _items[_indices[index]];
+
         public void Add(ItemModel item)
         {
             item.Index = _items.Count;
@@ -45,6 +47,10 @@ namespace AlgoVis.DataModel
             _indices[item2] = tempIdx;
         }
 
-        public ItemModel this[int index] => _items[_indices[index]];
+        public void Clear()
+        {
+            _items.Clear();
+            _indices.Clear();
+        }
     }
 }

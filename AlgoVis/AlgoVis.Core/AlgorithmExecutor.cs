@@ -6,10 +6,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Threading;
 using AlgoVis.Core.ActionStatements;
+using Splat;
 
 namespace AlgoVis.Core
 {
-    public class AlgorithmExecutor
+    public class AlgorithmExecutor : IEnableLogger
     {
         private readonly Dispatcher _dispatcher;
 
@@ -18,9 +19,9 @@ namespace AlgoVis.Core
             _dispatcher = dispatcher;
         }
 
-        public void Exectue(IAction action, object[] parameters)
+        public void Exectue(ActionExecutePack pack)
         {
-            var enumerator = action.Execute(parameters).GetEnumerator();
+            var enumerator = pack.Action.Execute(pack.Parameters.ToArray()).GetEnumerator();
 
             var executionThread = new Thread(() =>
             {
@@ -38,7 +39,10 @@ namespace AlgoVis.Core
                         IActionStatement statement = enumerator.Current;
                         if (statement is WaitStatement)
                         {
-                            Thread.Sleep(((WaitStatement) statement).Time);
+                            var time = ((WaitStatement) statement).Time;
+                            //this.Log().Debug($"Algorithm execution waiting for ${time.TotalSeconds} seconds");
+                            //Console.WriteLine($"Algorithm execution waiting for ${time.TotalSeconds} seconds");
+                            Thread.Sleep(time);
                         }
                     }
                 }

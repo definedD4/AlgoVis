@@ -204,6 +204,10 @@
       <Project>{E5893900-D270-49F2-B757-86D2EFB1036B}</Project>
       <Name>AlgoVis.AlgorithmConstruction</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AlgoVis.Controls\AlgoVis.Controls.csproj">
+      <Project>{bc70eaa9-058c-4f37-ada3-5fec628b0f1c}</Project>
+      <Name>AlgoVis.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AlgoVis.Core\AlgoVis.Core.csproj">
       <Project>{01BEF741-2103-4635-BAA6-75E47E0FC0C4}</Project>
       <Name>AlgoVis.Core</Name>

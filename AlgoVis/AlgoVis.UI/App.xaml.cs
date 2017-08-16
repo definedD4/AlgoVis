@@ -27,6 +27,8 @@ namespace AlgoVis.UI
 
             RegisterViews();
 
+            Locator.CurrentMutable.RegisterConstant(new DebugLogger(), typeof(ILogger));
+
             new MainView
             {
                 ViewModel = new MainViewModel()

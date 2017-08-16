@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AlgoVis.UI.AlgorithmDisplay"
+             xmlns:presenation="clr-namespace:AlgoVis.Presenation;assembly=AlgoVis.Presenation"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
@@ -14,7 +15,7 @@
             <RowDefinition Height="140"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="TitleTextBox" Text="Default" FontSize="24" TextDecorations="Underline"/>
-        <ContentPresenter x:Name="AlgorithmContentPresenter" Grid.Row="1"/>
+        <presenation:DisplayHost x:Name="AlgorithmContentPresenter" Grid.Row="1"/>
         <GridSplitter Style="{StaticResource HorizontalGridSplitter}" Grid.Row="2"/>
         <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto">
             <ItemsControl x:Name="ActionsItemsControl"/>

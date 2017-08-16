@@ -58,7 +58,7 @@ namespace AlgoVis.Controls
 
         private void AssignOffsets(DependencyObject recentlyAdded = null)
         {
-            var sortedChildren = Children.Cast<UIElement>().ToList();
+            var sortedChildren = Children.Cast<UIElement>().Where(x => x != null).ToList();
             sortedChildren.Sort((a, b) => GetIndex(a) - GetIndex(b));
 
             double offset = 0d;
@@ -70,7 +70,7 @@ namespace AlgoVis.Controls
                 }
                 else
                 {
-                    child.BeginAnimation(HorizontalOffsetProperty, new DoubleAnimation(offset, AnimationDuration));
+                    child.BeginAnimation(HorizontalOffsetProperty, new DoubleAnimation(offset, AnimationDuration) { AccelerationRatio = 0, DecelerationRatio = 0});
                 }
 
                 offset += child.DesiredSize.Width;
